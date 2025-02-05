@@ -1,7 +1,6 @@
 package com.mayara.event_system.entities;
 
 import jakarta.persistence.*;
-
 import java.time.Instant;
 import java.util.Objects;
 

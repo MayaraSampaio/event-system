@@ -1,7 +1,6 @@
 package com.mayara.event_system.entities;
 
 import jakarta.persistence.*;
-
 import java.util.*;
 
 @Entity
@@ -22,8 +21,12 @@ public class Atividade {
     @OneToMany(mappedBy = "atividade")
     private List<Bloco> blocos = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "atividades")
+    @ManyToMany
+    @JoinTable(name = "tb_atividade_participante",
+            joinColumns = @JoinColumn(name = "atividade_id"),
+            inverseJoinColumns = @JoinColumn(name = "participante_id" ))
     private Set<Participante> participantes = new HashSet<>();
+
 
     public Atividade(){}
 
